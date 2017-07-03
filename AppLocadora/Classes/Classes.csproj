@@ -41,6 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao\Connection.cs" />
+    <Compile Include="Controller\PagamentoController.cs" />
+    <Compile Include="Controller\Tipo_PagController.cs" />
+    <Compile Include="Controller\PagadorController.cs" />
+    <Compile Include="Controller\Metodo_PagController.cs" />
+    <Compile Include="Controller\Forma_PagController.cs" />
+    <Compile Include="Controller\BeneficiarioController.cs" />
     <Compile Include="DAO\Tipo_PagDAO.cs" />
     <Compile Include="DAO\PagamentoDAO.cs" />
     <Compile Include="DAO\PagadorDAO.cs" />

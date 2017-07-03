@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("VIewWFA")]
+[assembly: AssemblyTitle("ViewWFA")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("VIewWFA")]
+[assembly: AssemblyProduct("ViewWFA")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("08c9c7c9-82d5-4b7c-8ddc-ec3a588cf2da")]
+[assembly: Guid("0b969724-56ee-4bf7-8d82-b564f639bc47")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

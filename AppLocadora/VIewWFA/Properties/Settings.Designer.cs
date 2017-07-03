@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VIewWFA.Properties
+namespace ViewWFA.Properties
 {
 
 

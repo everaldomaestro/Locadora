@@ -13,182 +13,182 @@ namespace ViewConsole
         {         
             
 
-            void PagadorListarTudo()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Pagador> Tabela = new PagadorDAO(con);
+            //void PagadorListarTudo()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Pagador> Tabela = new PagadorDAO(con);
 
-                    Collection<Pagador> result = Tabela.ListarTudo();
+            //        Collection<Pagador> result = Tabela.ListarTudo();
 
-                    foreach (var v in result)
-                    {
-                        Console.WriteLine("ID:{0} , CNPJ:{1} , NOME:{2}",
-                            v.PAGADOR_ID,
-                            v.PAGADOR_CNPJCPF,
-                            v.PAGADOR_NOME);
-                    }
-                }
-            }
+            //        foreach (var v in result)
+            //        {
+            //            Console.WriteLine("ID:{0} , CNPJ:{1} , NOME:{2}",
+            //                v.PAGADOR_ID,
+            //                v.PAGADOR_CNPJCPF,
+            //                v.PAGADOR_NOME);
+            //        }
+            //    }
+            //}
 
-            void PagadorListarPorCodigo()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Pagador> Tabela = new PagadorDAO(con);
+            //void PagadorListarPorCodigo()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Pagador> Tabela = new PagadorDAO(con);
 
-                    Pagador b = Tabela.LocalizarPorCodigo(22);
+            //        Pagador b = Tabela.LocalizarPorCodigo(22);
 
-                    if (b == null)
-                    {
-                        Console.WriteLine("Não existe!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("ID:{0} , CPF:{1} , NOME:{2}",
-                            b.PAGADOR_ID,
-                            b.PAGADOR_CNPJCPF,
-                            b.PAGADOR_NOME);
-                    }
-                }
-            }
+            //        if (b == null)
+            //        {
+            //            Console.WriteLine("Não existe!");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("ID:{0} , CPF:{1} , NOME:{2}",
+            //                b.PAGADOR_ID,
+            //                b.PAGADOR_CNPJCPF,
+            //                b.PAGADOR_NOME);
+            //        }
+            //    }
+            //}
 
-            void PagadorInserir()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Pagador> Tabela = new PagadorDAO(con);
+            //void PagadorInserir()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Pagador> Tabela = new PagadorDAO(con);
 
-                    Pagador b = new Pagador();
-                    b.PAGADOR_CNPJCPF = "07675797477";
-                    b.PAGADOR_NOME = "EVERALDO JOSÉ COSTA DE ALMEIDA";
+            //        Pagador b = new Pagador();
+            //        b.PAGADOR_CNPJCPF = "07675797477";
+            //        b.PAGADOR_NOME = "EVERALDO JOSÉ COSTA DE ALMEIDA";
 
-                    Tabela.Inserir(b);
+            //        Tabela.Inserir(b);
 
-                }
-            }
+            //    }
+            //}
 
-            void PagadorExcluir()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Pagador> Tabela = new PagadorDAO(con);
+            //void PagadorExcluir()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Pagador> Tabela = new PagadorDAO(con);
 
-                    Pagador b = new Pagador();
-                    b.PAGADOR_ID = 1;
+            //        Pagador b = new Pagador();
+            //        b.PAGADOR_ID = 1;
 
-                    Tabela.Remover(b);
+            //        Tabela.Remover(b);
 
-                }
-            }
+            //    }
+            //}
 
-            void PagadorAtualizar()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Pagador> Tabela = new PagadorDAO(con);
+            //void PagadorAtualizar()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Pagador> Tabela = new PagadorDAO(con);
 
-                    Pagador b = new Pagador();
-                    b.PAGADOR_ID = 1;
-                    b.PAGADOR_CNPJCPF = "07675797477";
-                    b.PAGADOR_NOME = "EVERALDO JOSE COSTA DE ALMEIDA";
+            //        Pagador b = new Pagador();
+            //        b.PAGADOR_ID = 1;
+            //        b.PAGADOR_CNPJCPF = "07675797477";
+            //        b.PAGADOR_NOME = "EVERALDO JOSE COSTA DE ALMEIDA";
 
-                    Tabela.Atualizar(b);
+            //        Tabela.Atualizar(b);
 
-                }
-            }
+            //    }
+            //}
 
-            void FormaPagListarTudo()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
+            //void FormaPagListarTudo()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
 
-                    Collection<Forma_Pag> result = Tabela.ListarTudo();
+            //        Collection<Forma_Pag> result = Tabela.ListarTudo();
 
-                    foreach (var v in result)
-                    {
-                        Console.WriteLine("ID:{0} , DESCRIÇÃO:{1}",
-                            v.FORMA_PAG_ID,
-                            v.FORMA_PAG_DESCRICAO);
-                    }
-                }
-            }
+            //        foreach (var v in result)
+            //        {
+            //            Console.WriteLine("ID:{0} , DESCRIÇÃO:{1}",
+            //                v.FORMA_PAG_ID,
+            //                v.FORMA_PAG_DESCRICAO);
+            //        }
+            //    }
+            //}
 
-            void FormaPagListarPorCodigo()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
+            //void FormaPagListarPorCodigo()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
 
-                    Forma_Pag b = Tabela.LocalizarPorCodigo(2);
+            //        Forma_Pag b = Tabela.LocalizarPorCodigo(2);
 
-                    if (b == null)
-                    {
-                        Console.WriteLine("Não existe!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("ID:{0} , DESCRIÇÃO:{1}",
-                            b.FORMA_PAG_ID,
-                            b.FORMA_PAG_DESCRICAO);
-                    }
-                }
-            }
+            //        if (b == null)
+            //        {
+            //            Console.WriteLine("Não existe!");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("ID:{0} , DESCRIÇÃO:{1}",
+            //                b.FORMA_PAG_ID,
+            //                b.FORMA_PAG_DESCRICAO);
+            //        }
+            //    }
+            //}
 
-            void FormaPagInserir()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
+            //void FormaPagInserir()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
 
-                    Forma_Pag b = new Forma_Pag();
-                    b.FORMA_PAG_DESCRICAO = "DINHEIRO";
+            //        Forma_Pag b = new Forma_Pag();
+            //        b.FORMA_PAG_DESCRICAO = "DINHEIRO";
 
-                    Tabela.Inserir(b);
+            //        Tabela.Inserir(b);
 
-                }
-            }
+            //    }
+            //}
 
-            void FormaPagExcluir()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
+            //void FormaPagExcluir()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
 
-                    Forma_Pag b = new Forma_Pag();
-                    b.FORMA_PAG_ID = 1;
+            //        Forma_Pag b = new Forma_Pag();
+            //        b.FORMA_PAG_ID = 1;
 
-                    Tabela.Remover(b);
-                }
-            }
+            //        Tabela.Remover(b);
+            //    }
+            //}
 
-            void FormaPagAtualizar()
-            {
-                using (Connection con = new Connection())
-                {
-                    con.Abrir();
-                    IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
+            //void FormaPagAtualizar()
+            //{
+            //    using (Connection con = new Connection())
+            //    {
+            //        con.Abrir();
+            //        IDAO<Forma_Pag> Tabela = new Forma_PagDAO(con);
 
-                    Forma_Pag b = new Forma_Pag();
-                    b.FORMA_PAG_ID = 1;
-                    b.FORMA_PAG_DESCRICAO = "DINHEIROS";
+            //        Forma_Pag b = new Forma_Pag();
+            //        b.FORMA_PAG_ID = 1;
+            //        b.FORMA_PAG_DESCRICAO = "DINHEIROS";
 
-                    Tabela.Atualizar(b);
-                }
-            }
+            //        Tabela.Atualizar(b);
+            //    }
+            //}
 
-            FormaPagListarPorCodigo();
-            Console.ReadKey();
+            //FormaPagListarPorCodigo();
+            //Console.ReadKey();
         }
     }
 }

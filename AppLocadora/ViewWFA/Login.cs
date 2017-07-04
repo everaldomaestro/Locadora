@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ViewWFA.Forms;
 
 namespace ViewWFA
 {
@@ -15,6 +16,13 @@ namespace ViewWFA
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmCadBeneficiario frm = new frmCadBeneficiario();
+            frm.Show();
+            this.Hide();
         }
     }
 }

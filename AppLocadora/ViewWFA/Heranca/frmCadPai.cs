@@ -12,6 +12,15 @@ namespace ViewWFA.Heranca
 {
     public partial class frmCadPai : Form
     {
+        protected enum Operacao
+        {
+            gravarNovo,
+            editarRegistro,
+            visualizarRegistro
+        }
+
+        protected static Operacao operacao;
+
         public frmCadPai()
         {
             InitializeComponent();

@@ -154,6 +154,7 @@
             this.dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgView.Size = new System.Drawing.Size(583, 260);
             this.dgView.TabIndex = 1;
+            this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -191,6 +192,7 @@
             // 
             // bENEFICIARIO_CNPJCPFTextBox
             // 
+            this.bENEFICIARIO_CNPJCPFTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.bENEFICIARIO_CNPJCPFTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "BENEFICIARIO_CNPJCPF", true));
             this.bENEFICIARIO_CNPJCPFTextBox.Location = new System.Drawing.Point(97, 15);
             this.bENEFICIARIO_CNPJCPFTextBox.Name = "bENEFICIARIO_CNPJCPFTextBox";
@@ -199,6 +201,7 @@
             // 
             // bENEFICIARIO_NOMEFANTextBox
             // 
+            this.bENEFICIARIO_NOMEFANTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.bENEFICIARIO_NOMEFANTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "BENEFICIARIO_NOMEFAN", true));
             this.bENEFICIARIO_NOMEFANTextBox.Location = new System.Drawing.Point(311, 15);
             this.bENEFICIARIO_NOMEFANTextBox.Name = "bENEFICIARIO_NOMEFANTextBox";
@@ -207,6 +210,7 @@
             // 
             // bENEFICIARIO_RAZAOSOCTextBox
             // 
+            this.bENEFICIARIO_RAZAOSOCTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.bENEFICIARIO_RAZAOSOCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "BENEFICIARIO_RAZAOSOC", true));
             this.bENEFICIARIO_RAZAOSOCTextBox.Location = new System.Drawing.Point(97, 41);
             this.bENEFICIARIO_RAZAOSOCTextBox.Name = "bENEFICIARIO_RAZAOSOCTextBox";

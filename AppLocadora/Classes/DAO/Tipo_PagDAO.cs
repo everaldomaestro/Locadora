@@ -29,7 +29,7 @@ namespace Classes.DAO
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText =
                     "UPDATE TIPO_PAG SET " +
-                    "TIPO_PAG_DESCRICAO=@DESCRICAO," +
+                    "TIPO_PAG_DESCRICAO=@DESCRICAO " +
                     "WHERE TIPO_PAG_ID=@ID";
 
                 cmd.Parameters.Add("@DESCRICAO", SqlDbType.Text).Value =
@@ -76,7 +76,7 @@ namespace Classes.DAO
                 cmd.CommandText =
                     "SELECT " +
                     "TIPO_PAG_ID," +
-                    "TIPO_PAG_DESCRICAO," +
+                    "TIPO_PAG_DESCRICAO " +
                     "FROM TIPO_PAG " +
                     "ORDER BY TIPO_PAG_DESCRICAO";
 
@@ -111,7 +111,7 @@ namespace Classes.DAO
                 cmd.CommandText =
                     "SELECT " +
                     "TIPO_PAG_ID," +
-                    "TIPO_PAG_DESCRICAO," +
+                    "TIPO_PAG_DESCRICAO " +
                     "FROM TIPO_PAG " +
                     "WHERE TIPO_PAG_ID=@ID";
 

@@ -12,7 +12,7 @@ namespace ViewWFA.Forms
             InitializeComponent();
         }
 
-        private void frmCadBeneficiario_Load(object sender, EventArgs e)
+        private void frmCadTipo_Pag_Load(object sender, EventArgs e)
         {
             CarregarDados();
             AtivarControles(true);
@@ -22,7 +22,7 @@ namespace ViewWFA.Forms
         private void CarregarDados()
         {
             operacao = Operacao.visualizarRegistro;
-            BeneficiarioController ModelController = new BeneficiarioController();
+            Tipo_PagController ModelController = new Tipo_PagController();
             bSource.DataSource = ModelController.ListarTudo();
         }
         
@@ -59,27 +59,23 @@ namespace ViewWFA.Forms
             BloquearEdicaoDados(false);
 
             bSource.AddNew();
-            //bENEFICIARIO_CNPJCPFTextBox.Focus();            
+            tIPO_PAG_DESCRICAOTextBox.Focus();            
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            BeneficiarioController ModelController = new BeneficiarioController();
-            Beneficiario model = new Beneficiario();
+            Tipo_PagController ModelController = new Tipo_PagController();
+            Tipo_Pag model = new Tipo_Pag();
             if (operacao == Operacao.gravarNovo)
             {
-                //model.BENEFICIARIO_CNPJCPF = bENEFICIARIO_CNPJCPFTextBox.Text;
-                //model.BENEFICIARIO_NOMEFAN = bENEFICIARIO_NOMEFANTextBox.Text;
-                //model.BENEFICIARIO_RAZAOSOC = bENEFICIARIO_RAZAOSOCTextBox.Text;
+                model.TIPO_PAG_DESCRICAO = tIPO_PAG_DESCRICAOTextBox.Text;
 
                 ModelController.Inserir(model);
             }
             else if(operacao == Operacao.editarRegistro)
             {
-                model = (Beneficiario) bSource.Current;
-                //model.BENEFICIARIO_CNPJCPF = bENEFICIARIO_CNPJCPFTextBox.Text;
-                //model.BENEFICIARIO_NOMEFAN = bENEFICIARIO_NOMEFANTextBox.Text;
-                //model.BENEFICIARIO_RAZAOSOC = bENEFICIARIO_RAZAOSOCTextBox.Text;
+                model = (Tipo_Pag) bSource.Current;
+                model.TIPO_PAG_DESCRICAO = tIPO_PAG_DESCRICAOTextBox.Text;
 
                 ModelController.Atualizar(model);
             }
@@ -95,21 +91,21 @@ namespace ViewWFA.Forms
             AtivarControles(false);
             BloquearEdicaoDados(false);
 
-            //bENEFICIARIO_CNPJCPFTextBox.Focus();
+            tIPO_PAG_DESCRICAOTextBox.Focus();
         }
 
         private void btnRemover_Click(object sender, EventArgs e)//OK
         {
-            BeneficiarioController ModelController = new BeneficiarioController();
-            Beneficiario b = (Beneficiario) bSource.Current;
+            Tipo_PagController ModelController = new Tipo_PagController();
+            Tipo_Pag model = (Tipo_Pag) bSource.Current;
 
             if (MessageBox.Show(
                 "Tem certeza que deseja excluir o registro de " +
-                b.BENEFICIARIO_NOMEFAN + "?", "Alerta",
+                model.TIPO_PAG_DESCRICAO + "?", "Alerta",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                 DialogResult.Yes)
             {
-                ModelController.Excluir(b.BENEFICIARIO_ID);
+                ModelController.Excluir(model.TIPO_PAG_ID);
                 CarregarDados();
                 MessageBox.Show("Exclusão executada", "Exclusão",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

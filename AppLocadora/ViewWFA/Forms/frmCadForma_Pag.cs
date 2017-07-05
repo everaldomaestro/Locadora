@@ -97,15 +97,15 @@ namespace ViewWFA.Forms
         private void btnRemover_Click(object sender, EventArgs e)//OK
         {
             Forma_PagController ModelController = new Forma_PagController();
-            Forma_Pag b = (Forma_Pag) bSource.Current;
+            Forma_Pag model = (Forma_Pag) bSource.Current;
 
             if (MessageBox.Show(
                 "Tem certeza que deseja excluir o registro de " +
-                b.FORMA_PAG_DESCRICAO + "?", "Alerta",
+                model.FORMA_PAG_DESCRICAO + "?", "Alerta",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                 DialogResult.Yes)
             {
-                ModelController.Excluir(b.FORMA_PAG_ID);
+                ModelController.Excluir(model.FORMA_PAG_ID);
                 CarregarDados();
                 MessageBox.Show("Exclusão executada", "Exclusão",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

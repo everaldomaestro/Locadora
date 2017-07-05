@@ -142,7 +142,7 @@ namespace Classes.DAO
                     "PAGAMENTO_FORMAPAG," +
                     "PAGAMENTO_TIPOPAG " +
                     "FROM PAGAMENTO " +
-                    "ORDER BY PAGAMENTO_DATA";
+                    "ORDER BY PAGAMENTO_ID";
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                 {

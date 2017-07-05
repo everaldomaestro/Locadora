@@ -182,6 +182,7 @@
             this.bENEFICIARIOIDDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_ID";
             this.bENEFICIARIOIDDataGridViewTextBoxColumn.Name = "bENEFICIARIOIDDataGridViewTextBoxColumn";
             this.bENEFICIARIOIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bENEFICIARIOIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn
             // 
@@ -231,10 +232,6 @@
         private System.Windows.Forms.TextBox bENEFICIARIO_RAZAOSOCTextBox;
         private System.Windows.Forms.TextBox bENEFICIARIO_NOMEFANTextBox;
         private System.Windows.Forms.TextBox bENEFICIARIO_CNPJCPFTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn bENEFICIARIOIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn;

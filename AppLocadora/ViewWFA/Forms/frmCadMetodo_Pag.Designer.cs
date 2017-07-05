@@ -166,10 +166,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TextBox mETODO_PAG_DESCRICAOTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn mETODOPAGIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mETODOPAGDESCRICAODataGridViewTextBoxColumn;

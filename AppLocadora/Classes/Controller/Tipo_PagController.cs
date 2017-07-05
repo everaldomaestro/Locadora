@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Classes.Controller
 {
-    public class Tipo_PagControlle
+    public class Tipo_PagController
     {
         public Collection<Tipo_Pag> ListarTudo()
         {

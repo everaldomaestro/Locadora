@@ -101,15 +101,15 @@ namespace ViewWFA.Forms
         private void btnRemover_Click(object sender, EventArgs e)//OK
         {
             BeneficiarioController ModelController = new BeneficiarioController();
-            Beneficiario b = (Beneficiario) bSource.Current;
+            Beneficiario model = (Beneficiario) bSource.Current;
 
             if (MessageBox.Show(
                 "Tem certeza que deseja excluir o registro de " +
-                b.BENEFICIARIO_NOMEFAN + "?", "Alerta",
+                model.BENEFICIARIO_NOMEFAN + "?", "Alerta",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                 DialogResult.Yes)
             {
-                ModelController.Excluir(b.BENEFICIARIO_ID);
+                ModelController.Excluir(model.BENEFICIARIO_ID);
                 CarregarDados();
                 MessageBox.Show("Exclusão executada", "Exclusão",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

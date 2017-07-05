@@ -28,7 +28,7 @@ namespace Classes.DAO
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText =
                     "UPDATE METODO_PAG SET " +
-                    "METODO_PAG_DESCRICAO=@DESCRICAO," +
+                    "METODO_PAG_DESCRICAO=@DESCRICAO " +
                     "WHERE METODO_PAG_ID=@ID";
 
                 cmd.Parameters.Add("@DESCRICAO", SqlDbType.Text).Value =
@@ -52,7 +52,7 @@ namespace Classes.DAO
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText =
                     "INSERT INTO METODO_PAG (" +
-                    "METODO_PAG_DESCRICAO," +
+                    "METODO_PAG_DESCRICAO) " +
                     "VALUES(" +
                     "@DESCRICAO)";
 
@@ -75,7 +75,7 @@ namespace Classes.DAO
                 cmd.CommandText =
                     "SELECT " +
                     "METODO_PAG_ID," +
-                    "METODO_PAG_DESCRICAO," +
+                    "METODO_PAG_DESCRICAO " +
                     "FROM METODO_PAG " +
                     "ORDER BY METODO_PAG_DESCRICAO";
 
@@ -111,7 +111,7 @@ namespace Classes.DAO
                 cmd.CommandText =
                     "SELECT " +
                     "METODO_PAG_ID," +
-                    "METODO_PAG_DESCRICAO," +
+                    "METODO_PAG_DESCRICAO " +
                     "FROM METODO_PAG " +
                     "WHERE METODO_PAG_ID=@ID";
 

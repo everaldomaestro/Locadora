@@ -30,9 +30,9 @@
         {
             System.Windows.Forms.Label fORMA_PAG_DESCRICAOLabel;
             this.dgView = new System.Windows.Forms.DataGridView();
+            this.fORMA_PAG_DESCRICAOTextBox = new System.Windows.Forms.TextBox();
             this.fORMAPAGIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fORMAPAGDESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fORMA_PAG_DESCRICAOTextBox = new System.Windows.Forms.TextBox();
             fORMA_PAG_DESCRICAOLabel = new System.Windows.Forms.Label();
             this.tpCadastro.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -89,6 +89,15 @@
             // 
             this.bSource.DataSource = typeof(Classes.Entidades.Forma_Pag);
             // 
+            // fORMA_PAG_DESCRICAOLabel
+            // 
+            fORMA_PAG_DESCRICAOLabel.AutoSize = true;
+            fORMA_PAG_DESCRICAOLabel.Location = new System.Drawing.Point(6, 16);
+            fORMA_PAG_DESCRICAOLabel.Name = "fORMA_PAG_DESCRICAOLabel";
+            fORMA_PAG_DESCRICAOLabel.Size = new System.Drawing.Size(69, 13);
+            fORMA_PAG_DESCRICAOLabel.TabIndex = 0;
+            fORMA_PAG_DESCRICAOLabel.Text = "DESCRIÇÃO";
+            // 
             // dgView
             // 
             this.dgView.AllowUserToAddRows = false;
@@ -108,6 +117,15 @@
             this.dgView.TabIndex = 1;
             this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
             // 
+            // fORMA_PAG_DESCRICAOTextBox
+            // 
+            this.fORMA_PAG_DESCRICAOTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.fORMA_PAG_DESCRICAOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "FORMA_PAG_DESCRICAO", true));
+            this.fORMA_PAG_DESCRICAOTextBox.Location = new System.Drawing.Point(81, 13);
+            this.fORMA_PAG_DESCRICAOTextBox.Name = "fORMA_PAG_DESCRICAOTextBox";
+            this.fORMA_PAG_DESCRICAOTextBox.Size = new System.Drawing.Size(496, 20);
+            this.fORMA_PAG_DESCRICAOTextBox.TabIndex = 1;
+            // 
             // fORMAPAGIDDataGridViewTextBoxColumn
             // 
             this.fORMAPAGIDDataGridViewTextBoxColumn.DataPropertyName = "FORMA_PAG_ID";
@@ -118,28 +136,10 @@
             // 
             // fORMAPAGDESCRICAODataGridViewTextBoxColumn
             // 
-            this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.DataPropertyName = "FORMA_PAG_DESCRICAO";
-            this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.HeaderText = "DESCRICAO";
+            this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.HeaderText = "FORMA_PAG_DESCRICAO";
             this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.Name = "fORMAPAGDESCRICAODataGridViewTextBoxColumn";
             this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fORMA_PAG_DESCRICAOLabel
-            // 
-            fORMA_PAG_DESCRICAOLabel.AutoSize = true;
-            fORMA_PAG_DESCRICAOLabel.Location = new System.Drawing.Point(6, 16);
-            fORMA_PAG_DESCRICAOLabel.Name = "fORMA_PAG_DESCRICAOLabel";
-            fORMA_PAG_DESCRICAOLabel.Size = new System.Drawing.Size(69, 13);
-            fORMA_PAG_DESCRICAOLabel.TabIndex = 0;
-            fORMA_PAG_DESCRICAOLabel.Text = "DESCRIÇÃO";
-            // 
-            // fORMA_PAG_DESCRICAOTextBox
-            // 
-            this.fORMA_PAG_DESCRICAOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "FORMA_PAG_DESCRICAO", true));
-            this.fORMA_PAG_DESCRICAOTextBox.Location = new System.Drawing.Point(81, 13);
-            this.fORMA_PAG_DESCRICAOTextBox.Name = "fORMA_PAG_DESCRICAOTextBox";
-            this.fORMA_PAG_DESCRICAOTextBox.Size = new System.Drawing.Size(496, 20);
-            this.fORMA_PAG_DESCRICAOTextBox.TabIndex = 1;
             // 
             // frmCadForma_Pag
             // 
@@ -169,8 +169,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.TextBox fORMA_PAG_DESCRICAOTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn fORMAPAGIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fORMAPAGDESCRICAODataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox fORMA_PAG_DESCRICAOTextBox;
     }
 }

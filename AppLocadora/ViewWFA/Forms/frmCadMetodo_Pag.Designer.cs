@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label mETODO_PAG_DESCRICAOLabel;
             this.dgView = new System.Windows.Forms.DataGridView();
-            this.bENEFICIARIOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mETODO_PAG_DESCRICAOTextBox = new System.Windows.Forms.TextBox();
+            this.mETODOPAGIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mETODOPAGDESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            mETODO_PAG_DESCRICAOLabel = new System.Windows.Forms.Label();
             this.tpCadastro.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.gbDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.SuspendLayout();
@@ -54,8 +56,10 @@
             // 
             // gbDados
             // 
-            this.gbDados.Location = new System.Drawing.Point(3, 269);
-            this.gbDados.Size = new System.Drawing.Size(583, 70);
+            this.gbDados.Controls.Add(mETODO_PAG_DESCRICAOLabel);
+            this.gbDados.Controls.Add(this.mETODO_PAG_DESCRICAOTextBox);
+            this.gbDados.Location = new System.Drawing.Point(3, 297);
+            this.gbDados.Size = new System.Drawing.Size(583, 42);
             // 
             // btnAtualizar
             // 
@@ -83,7 +87,16 @@
             // 
             // bSource
             // 
-            this.bSource.DataSource = typeof(Classes.Entidades.Beneficiario);
+            this.bSource.DataSource = typeof(Classes.Entidades.Metodo_Pag);
+            // 
+            // mETODO_PAG_DESCRICAOLabel
+            // 
+            mETODO_PAG_DESCRICAOLabel.AutoSize = true;
+            mETODO_PAG_DESCRICAOLabel.Location = new System.Drawing.Point(6, 16);
+            mETODO_PAG_DESCRICAOLabel.Name = "mETODO_PAG_DESCRICAOLabel";
+            mETODO_PAG_DESCRICAOLabel.Size = new System.Drawing.Size(69, 13);
+            mETODO_PAG_DESCRICAOLabel.TabIndex = 0;
+            mETODO_PAG_DESCRICAOLabel.Text = "DESCRIÇÃO";
             // 
             // dgView
             // 
@@ -93,59 +106,56 @@
             this.dgView.AutoGenerateColumns = false;
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bENEFICIARIOIDDataGridViewTextBoxColumn,
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn,
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn,
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn});
+            this.mETODOPAGIDDataGridViewTextBoxColumn,
+            this.mETODOPAGDESCRICAODataGridViewTextBoxColumn});
             this.dgView.DataSource = this.bSource;
             this.dgView.Location = new System.Drawing.Point(3, 3);
             this.dgView.Name = "dgView";
             this.dgView.ReadOnly = true;
             this.dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgView.Size = new System.Drawing.Size(583, 260);
+            this.dgView.Size = new System.Drawing.Size(583, 288);
             this.dgView.TabIndex = 1;
             this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
             // 
-            // bENEFICIARIOIDDataGridViewTextBoxColumn
+            // mETODO_PAG_DESCRICAOTextBox
             // 
-            this.bENEFICIARIOIDDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_ID";
-            this.bENEFICIARIOIDDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_ID";
-            this.bENEFICIARIOIDDataGridViewTextBoxColumn.Name = "bENEFICIARIOIDDataGridViewTextBoxColumn";
-            this.bENEFICIARIOIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mETODO_PAG_DESCRICAOTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.mETODO_PAG_DESCRICAOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "METODO_PAG_DESCRICAO", true));
+            this.mETODO_PAG_DESCRICAOTextBox.Location = new System.Drawing.Point(81, 13);
+            this.mETODO_PAG_DESCRICAOTextBox.Name = "mETODO_PAG_DESCRICAOTextBox";
+            this.mETODO_PAG_DESCRICAOTextBox.Size = new System.Drawing.Size(496, 20);
+            this.mETODO_PAG_DESCRICAOTextBox.TabIndex = 1;
             // 
-            // bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn
+            // mETODOPAGIDDataGridViewTextBoxColumn
             // 
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_CNPJCPF";
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_CNPJCPF";
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.Name = "bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn";
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mETODOPAGIDDataGridViewTextBoxColumn.DataPropertyName = "METODO_PAG_ID";
+            this.mETODOPAGIDDataGridViewTextBoxColumn.HeaderText = "METODO_PAG_ID";
+            this.mETODOPAGIDDataGridViewTextBoxColumn.Name = "mETODOPAGIDDataGridViewTextBoxColumn";
+            this.mETODOPAGIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mETODOPAGIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn
+            // mETODOPAGDESCRICAODataGridViewTextBoxColumn
             // 
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_RAZAOSOC";
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_RAZAOSOC";
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.Name = "bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn";
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bENEFICIARIONOMEFANDataGridViewTextBoxColumn
-            // 
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_NOMEFAN";
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_NOMEFAN";
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.Name = "bENEFICIARIONOMEFANDataGridViewTextBoxColumn";
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mETODOPAGDESCRICAODataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.mETODOPAGDESCRICAODataGridViewTextBoxColumn.DataPropertyName = "METODO_PAG_DESCRICAO";
+            this.mETODOPAGDESCRICAODataGridViewTextBoxColumn.HeaderText = "DESCRIÇÃO";
+            this.mETODOPAGDESCRICAODataGridViewTextBoxColumn.Name = "mETODOPAGDESCRICAODataGridViewTextBoxColumn";
+            this.mETODOPAGDESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmCadMetodo_Pag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(611, 520);
             this.Name = "frmCadMetodo_Pag";
-            this.Text = "Cadastro de Beneficiário";
-            this.Load += new System.EventHandler(this.frmCadBeneficiario_Load);
+            this.Text = "Cadastro de métodos de pagamento";
+            this.Load += new System.EventHandler(this.frmCadMetodo_Pag_Load);
             this.tpCadastro.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.gbDados.ResumeLayout(false);
+            this.gbDados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.ResumeLayout(false);
@@ -160,9 +170,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bENEFICIARIOIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bENEFICIARIONOMEFANDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox mETODO_PAG_DESCRICAOTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mETODOPAGIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mETODOPAGDESCRICAODataGridViewTextBoxColumn;
     }
 }

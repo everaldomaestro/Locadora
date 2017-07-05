@@ -37,8 +37,8 @@
             this.bENEFICIARIO_RAZAOSOCTextBox = new System.Windows.Forms.TextBox();
             this.bENEFICIARIOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             bENEFICIARIO_CNPJCPFLabel = new System.Windows.Forms.Label();
             bENEFICIARIO_NOMEFANLabel = new System.Windows.Forms.Label();
             bENEFICIARIO_RAZAOSOCLabel = new System.Windows.Forms.Label();
@@ -138,8 +138,8 @@
             this.dgView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bENEFICIARIOIDDataGridViewTextBoxColumn,
             this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn,
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn,
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn});
+            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn,
+            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn});
             this.dgView.DataSource = this.bSource;
             this.dgView.Location = new System.Drawing.Point(3, 3);
             this.dgView.Name = "dgView";
@@ -182,33 +182,27 @@
             this.bENEFICIARIOIDDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_ID";
             this.bENEFICIARIOIDDataGridViewTextBoxColumn.Name = "bENEFICIARIOIDDataGridViewTextBoxColumn";
             this.bENEFICIARIOIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bENEFICIARIOIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn
             // 
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_CNPJCPF";
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.HeaderText = "CNPJ/CPF";
+            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_CNPJCPF";
             this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.Name = "bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn";
             this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bENEFICIARIOCNPJCPFDataGridViewTextBoxColumn.Width = 84;
-            // 
-            // bENEFICIARIONOMEFANDataGridViewTextBoxColumn
-            // 
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_NOMEFAN";
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.HeaderText = "APELIDO";
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.Name = "bENEFICIARIONOMEFANDataGridViewTextBoxColumn";
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.Width = 78;
             // 
             // bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn
             // 
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_RAZAOSOC";
-            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.HeaderText = "RAZÃO SOCIAL";
+            this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_RAZAOSOC";
             this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.Name = "bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn";
             this.bENEFICIARIORAZAOSOCDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bENEFICIARIONOMEFANDataGridViewTextBoxColumn
+            // 
+            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.DataPropertyName = "BENEFICIARIO_NOMEFAN";
+            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.HeaderText = "BENEFICIARIO_NOMEFAN";
+            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.Name = "bENEFICIARIONOMEFANDataGridViewTextBoxColumn";
+            this.bENEFICIARIONOMEFANDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmCadBeneficiario
             // 

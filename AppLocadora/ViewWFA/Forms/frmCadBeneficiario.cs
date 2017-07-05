@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace ViewWFA.Forms
 {
-    public partial class frmCadBeneficiario : ViewWFA.Heranca.frmCadPai
+    public partial class frmCadBeneficiario : Heranca.frmCadPai
     {
         public frmCadBeneficiario()
         {

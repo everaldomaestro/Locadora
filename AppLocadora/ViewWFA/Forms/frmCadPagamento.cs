@@ -59,7 +59,7 @@ namespace ViewWFA.Forms
             BloquearEdicaoDados(false);
 
             bSource.AddNew();
-            bENEFICIARIO_CNPJCPFTextBox.Focus();            
+            //bENEFICIARIO_CNPJCPFTextBox.Focus();            
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -68,18 +68,18 @@ namespace ViewWFA.Forms
             Beneficiario model = new Beneficiario();
             if (operacao == Operacao.gravarNovo)
             {
-                model.BENEFICIARIO_CNPJCPF = bENEFICIARIO_CNPJCPFTextBox.Text;
-                model.BENEFICIARIO_NOMEFAN = bENEFICIARIO_NOMEFANTextBox.Text;
-                model.BENEFICIARIO_RAZAOSOC = bENEFICIARIO_RAZAOSOCTextBox.Text;
+                //model.BENEFICIARIO_CNPJCPF = bENEFICIARIO_CNPJCPFTextBox.Text;
+                //model.BENEFICIARIO_NOMEFAN = bENEFICIARIO_NOMEFANTextBox.Text;
+                //model.BENEFICIARIO_RAZAOSOC = bENEFICIARIO_RAZAOSOCTextBox.Text;
 
                 ModelController.Inserir(model);
             }
             else if(operacao == Operacao.editarRegistro)
             {
                 model = (Beneficiario) bSource.Current;
-                model.BENEFICIARIO_CNPJCPF = bENEFICIARIO_CNPJCPFTextBox.Text;
-                model.BENEFICIARIO_NOMEFAN = bENEFICIARIO_NOMEFANTextBox.Text;
-                model.BENEFICIARIO_RAZAOSOC = bENEFICIARIO_RAZAOSOCTextBox.Text;
+                //model.BENEFICIARIO_CNPJCPF = bENEFICIARIO_CNPJCPFTextBox.Text;
+                //model.BENEFICIARIO_NOMEFAN = bENEFICIARIO_NOMEFANTextBox.Text;
+                //model.BENEFICIARIO_RAZAOSOC = bENEFICIARIO_RAZAOSOCTextBox.Text;
 
                 ModelController.Atualizar(model);
             }
@@ -95,7 +95,7 @@ namespace ViewWFA.Forms
             AtivarControles(false);
             BloquearEdicaoDados(false);
 
-            bENEFICIARIO_CNPJCPFTextBox.Focus();
+            //bENEFICIARIO_CNPJCPFTextBox.Focus();
         }
 
         private void btnRemover_Click(object sender, EventArgs e)//OK

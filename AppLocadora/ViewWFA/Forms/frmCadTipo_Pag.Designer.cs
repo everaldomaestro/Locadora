@@ -30,9 +30,9 @@
         {
             System.Windows.Forms.Label tIPO_PAG_DESCRICAOLabel;
             this.dgView = new System.Windows.Forms.DataGridView();
+            this.tIPO_PAG_DESCRICAOTextBox = new System.Windows.Forms.TextBox();
             this.tIPOPAGIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tIPOPAGDESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tIPO_PAG_DESCRICAOTextBox = new System.Windows.Forms.TextBox();
             tIPO_PAG_DESCRICAOLabel = new System.Windows.Forms.Label();
             this.tpCadastro.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -90,6 +90,15 @@
             // 
             this.bSource.DataSource = typeof(Classes.Entidades.Tipo_Pag);
             // 
+            // tIPO_PAG_DESCRICAOLabel
+            // 
+            tIPO_PAG_DESCRICAOLabel.AutoSize = true;
+            tIPO_PAG_DESCRICAOLabel.Location = new System.Drawing.Point(6, 16);
+            tIPO_PAG_DESCRICAOLabel.Name = "tIPO_PAG_DESCRICAOLabel";
+            tIPO_PAG_DESCRICAOLabel.Size = new System.Drawing.Size(69, 13);
+            tIPO_PAG_DESCRICAOLabel.TabIndex = 0;
+            tIPO_PAG_DESCRICAOLabel.Text = "DESCRIÇÃO";
+            // 
             // dgView
             // 
             this.dgView.AllowUserToAddRows = false;
@@ -109,6 +118,15 @@
             this.dgView.TabIndex = 1;
             this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
             // 
+            // tIPO_PAG_DESCRICAOTextBox
+            // 
+            this.tIPO_PAG_DESCRICAOTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tIPO_PAG_DESCRICAOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "TIPO_PAG_DESCRICAO", true));
+            this.tIPO_PAG_DESCRICAOTextBox.Location = new System.Drawing.Point(81, 13);
+            this.tIPO_PAG_DESCRICAOTextBox.Name = "tIPO_PAG_DESCRICAOTextBox";
+            this.tIPO_PAG_DESCRICAOTextBox.Size = new System.Drawing.Size(496, 20);
+            this.tIPO_PAG_DESCRICAOTextBox.TabIndex = 1;
+            // 
             // tIPOPAGIDDataGridViewTextBoxColumn
             // 
             this.tIPOPAGIDDataGridViewTextBoxColumn.DataPropertyName = "TIPO_PAG_ID";
@@ -124,24 +142,6 @@
             this.tIPOPAGDESCRICAODataGridViewTextBoxColumn.HeaderText = "DESCRIÇÃO";
             this.tIPOPAGDESCRICAODataGridViewTextBoxColumn.Name = "tIPOPAGDESCRICAODataGridViewTextBoxColumn";
             this.tIPOPAGDESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tIPO_PAG_DESCRICAOLabel
-            // 
-            tIPO_PAG_DESCRICAOLabel.AutoSize = true;
-            tIPO_PAG_DESCRICAOLabel.Location = new System.Drawing.Point(6, 16);
-            tIPO_PAG_DESCRICAOLabel.Name = "tIPO_PAG_DESCRICAOLabel";
-            tIPO_PAG_DESCRICAOLabel.Size = new System.Drawing.Size(69, 13);
-            tIPO_PAG_DESCRICAOLabel.TabIndex = 0;
-            tIPO_PAG_DESCRICAOLabel.Text = "DESCRIÇÃO";
-            // 
-            // tIPO_PAG_DESCRICAOTextBox
-            // 
-            this.tIPO_PAG_DESCRICAOTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tIPO_PAG_DESCRICAOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "TIPO_PAG_DESCRICAO", true));
-            this.tIPO_PAG_DESCRICAOTextBox.Location = new System.Drawing.Point(81, 13);
-            this.tIPO_PAG_DESCRICAOTextBox.Name = "tIPO_PAG_DESCRICAOTextBox";
-            this.tIPO_PAG_DESCRICAOTextBox.Size = new System.Drawing.Size(496, 20);
-            this.tIPO_PAG_DESCRICAOTextBox.TabIndex = 1;
             // 
             // frmCadTipo_Pag
             // 
@@ -167,8 +167,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgView;
+        private System.Windows.Forms.TextBox tIPO_PAG_DESCRICAOTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn tIPOPAGIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tIPOPAGDESCRICAODataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox tIPO_PAG_DESCRICAOTextBox;
     }
 }

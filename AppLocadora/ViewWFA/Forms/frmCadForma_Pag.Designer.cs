@@ -136,8 +136,9 @@
             // 
             // fORMAPAGDESCRICAODataGridViewTextBoxColumn
             // 
+            this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.DataPropertyName = "FORMA_PAG_DESCRICAO";
-            this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.HeaderText = "FORMA_PAG_DESCRICAO";
+            this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.HeaderText = "DESCRIÇÃO";
             this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.Name = "fORMAPAGDESCRICAODataGridViewTextBoxColumn";
             this.fORMAPAGDESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
             // 

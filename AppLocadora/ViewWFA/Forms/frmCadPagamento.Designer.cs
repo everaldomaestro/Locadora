@@ -46,8 +46,6 @@
             this.tipoPagBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dpData = new System.Windows.Forms.DateTimePicker();
             this.dpVencimento = new System.Windows.Forms.DateTimePicker();
-            this.pAGAMENTO_VALORPAGARTextBox = new System.Windows.Forms.TextBox();
-            this.pAGAMENTO_VALORPAGOTextBox = new System.Windows.Forms.TextBox();
             this.tbPagador = new System.Windows.Forms.TextBox();
             this.tbMetodoPag = new System.Windows.Forms.TextBox();
             this.tbFormaPag = new System.Windows.Forms.TextBox();
@@ -60,16 +58,13 @@
             this.cbMetodoPag = new System.Windows.Forms.ComboBox();
             this.cbPagador = new System.Windows.Forms.ComboBox();
             this.cbTipoPag = new System.Windows.Forms.ComboBox();
+            this.tbValorPagar = new System.Windows.Forms.TextBox();
+            this.tbValorPago = new System.Windows.Forms.TextBox();
             this.pAGAMENTOIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pAGAMENTODATADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pAGAMENTOVENCIMENTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pAGAMENTOVALORPAGARDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pAGAMENTOVALORPAGODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             pAGAMENTO_DATALabel = new System.Windows.Forms.Label();
             pAGAMENTO_VENCIMENTOLabel = new System.Windows.Forms.Label();
             pAGAMENTO_VALORPAGARLabel = new System.Windows.Forms.Label();
@@ -120,6 +115,8 @@
             // 
             // gbDados
             // 
+            this.gbDados.Controls.Add(this.tbValorPago);
+            this.gbDados.Controls.Add(this.tbValorPagar);
             this.gbDados.Controls.Add(this.cbTipoPag);
             this.gbDados.Controls.Add(this.cbPagador);
             this.gbDados.Controls.Add(this.cbMetodoPag);
@@ -138,15 +135,13 @@
             this.gbDados.Controls.Add(pAGAMENTO_PAGADORLabel);
             this.gbDados.Controls.Add(this.tbPagador);
             this.gbDados.Controls.Add(pAGAMENTO_VALORPAGOLabel);
-            this.gbDados.Controls.Add(this.pAGAMENTO_VALORPAGOTextBox);
             this.gbDados.Controls.Add(pAGAMENTO_VALORPAGARLabel);
-            this.gbDados.Controls.Add(this.pAGAMENTO_VALORPAGARTextBox);
             this.gbDados.Controls.Add(pAGAMENTO_VENCIMENTOLabel);
             this.gbDados.Controls.Add(this.dpVencimento);
             this.gbDados.Controls.Add(pAGAMENTO_DATALabel);
             this.gbDados.Controls.Add(this.dpData);
             this.gbDados.Location = new System.Drawing.Point(3, 217);
-            this.gbDados.Size = new System.Drawing.Size(586, 146);
+            this.gbDados.Size = new System.Drawing.Size(586, 148);
             // 
             // btnAtualizar
             // 
@@ -269,12 +264,7 @@
             this.pAGAMENTODATADataGridViewTextBoxColumn,
             this.pAGAMENTOVENCIMENTODataGridViewTextBoxColumn,
             this.pAGAMENTOVALORPAGARDataGridViewTextBoxColumn,
-            this.pAGAMENTOVALORPAGODataGridViewTextBoxColumn,
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn,
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn,
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn,
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn,
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn});
+            this.pAGAMENTOVALORPAGODataGridViewTextBoxColumn});
             this.dgView.DataSource = this.bSource;
             this.dgView.Location = new System.Drawing.Point(3, 3);
             this.dgView.Name = "dgView";
@@ -319,24 +309,6 @@
             this.dpVencimento.Name = "dpVencimento";
             this.dpVencimento.Size = new System.Drawing.Size(214, 20);
             this.dpVencimento.TabIndex = 3;
-            // 
-            // pAGAMENTO_VALORPAGARTextBox
-            // 
-            this.pAGAMENTO_VALORPAGARTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.pAGAMENTO_VALORPAGARTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "PAGAMENTO_VALORPAGAR", true));
-            this.pAGAMENTO_VALORPAGARTextBox.Location = new System.Drawing.Point(95, 38);
-            this.pAGAMENTO_VALORPAGARTextBox.Name = "pAGAMENTO_VALORPAGARTextBox";
-            this.pAGAMENTO_VALORPAGARTextBox.Size = new System.Drawing.Size(98, 20);
-            this.pAGAMENTO_VALORPAGARTextBox.TabIndex = 7;
-            // 
-            // pAGAMENTO_VALORPAGOTextBox
-            // 
-            this.pAGAMENTO_VALORPAGOTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.pAGAMENTO_VALORPAGOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "PAGAMENTO_VALORPAGO", true));
-            this.pAGAMENTO_VALORPAGOTextBox.Location = new System.Drawing.Point(281, 38);
-            this.pAGAMENTO_VALORPAGOTextBox.Name = "pAGAMENTO_VALORPAGOTextBox";
-            this.pAGAMENTO_VALORPAGOTextBox.Size = new System.Drawing.Size(102, 20);
-            this.pAGAMENTO_VALORPAGOTextBox.TabIndex = 8;
             // 
             // tbPagador
             // 
@@ -408,7 +380,7 @@
             this.cbBeneficiario.Location = new System.Drawing.Point(95, 91);
             this.cbBeneficiario.Name = "cbBeneficiario";
             this.cbBeneficiario.Size = new System.Drawing.Size(186, 21);
-            this.cbBeneficiario.TabIndex = 21;
+            this.cbBeneficiario.TabIndex = 10;
             this.cbBeneficiario.ValueMember = "BENEFICIARIO_ID";
             // 
             // cbFormaPag
@@ -420,7 +392,7 @@
             this.cbFormaPag.Location = new System.Drawing.Point(95, 118);
             this.cbFormaPag.Name = "cbFormaPag";
             this.cbFormaPag.Size = new System.Drawing.Size(186, 21);
-            this.cbFormaPag.TabIndex = 22;
+            this.cbFormaPag.TabIndex = 12;
             this.cbFormaPag.ValueMember = "FORMA_PAG_ID";
             // 
             // cbMetodoPag
@@ -432,7 +404,7 @@
             this.cbMetodoPag.Location = new System.Drawing.Point(375, 91);
             this.cbMetodoPag.Name = "cbMetodoPag";
             this.cbMetodoPag.Size = new System.Drawing.Size(205, 21);
-            this.cbMetodoPag.TabIndex = 23;
+            this.cbMetodoPag.TabIndex = 11;
             this.cbMetodoPag.ValueMember = "METODO_PAG_ID";
             // 
             // cbPagador
@@ -444,7 +416,7 @@
             this.cbPagador.Location = new System.Drawing.Point(95, 64);
             this.cbPagador.Name = "cbPagador";
             this.cbPagador.Size = new System.Drawing.Size(485, 21);
-            this.cbPagador.TabIndex = 24;
+            this.cbPagador.TabIndex = 9;
             this.cbPagador.ValueMember = "PAGADOR_ID";
             // 
             // cbTipoPag
@@ -456,8 +428,24 @@
             this.cbTipoPag.Location = new System.Drawing.Point(375, 118);
             this.cbTipoPag.Name = "cbTipoPag";
             this.cbTipoPag.Size = new System.Drawing.Size(205, 21);
-            this.cbTipoPag.TabIndex = 25;
+            this.cbTipoPag.TabIndex = 13;
             this.cbTipoPag.ValueMember = "TIPO_PAG_ID";
+            // 
+            // tbValorPagar
+            // 
+            this.tbValorPagar.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "PAGAMENTO_VALORPAGAR", true));
+            this.tbValorPagar.Location = new System.Drawing.Point(95, 38);
+            this.tbValorPagar.Name = "tbValorPagar";
+            this.tbValorPagar.Size = new System.Drawing.Size(100, 20);
+            this.tbValorPagar.TabIndex = 7;
+            // 
+            // tbValorPago
+            // 
+            this.tbValorPago.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bSource, "PAGAMENTO_VALORPAGO", true));
+            this.tbValorPago.Location = new System.Drawing.Point(281, 38);
+            this.tbValorPago.Name = "tbValorPago";
+            this.tbValorPago.Size = new System.Drawing.Size(100, 20);
+            this.tbValorPago.TabIndex = 8;
             // 
             // pAGAMENTOIDDataGridViewTextBoxColumn
             // 
@@ -494,71 +482,6 @@
             this.pAGAMENTOVALORPAGODataGridViewTextBoxColumn.Name = "pAGAMENTOVALORPAGODataGridViewTextBoxColumn";
             this.pAGAMENTOVALORPAGODataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn
-            // 
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.DataPropertyName = "PAGAMENTO_BENEFICIARIO";
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.DataSource = this.beneficiarioBindingSource;
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.DisplayMember = "BENEFICIARIO_NOMEFAN";
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.HeaderText = "PAGAMENTO_BENEFICIARIO";
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.Name = "pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn";
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn.ValueMember = "BENEFICIARIO_ID";
-            // 
-            // pAGAMENTOPAGADORDataGridViewTextBoxColumn
-            // 
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.DataPropertyName = "PAGAMENTO_PAGADOR";
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.DataSource = this.pagadorBindingSource;
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.DisplayMember = "PAGADOR_NOME";
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.HeaderText = "PAGAMENTO_PAGADOR";
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.Name = "pAGAMENTOPAGADORDataGridViewTextBoxColumn";
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.pAGAMENTOPAGADORDataGridViewTextBoxColumn.ValueMember = "PAGADOR_ID";
-            // 
-            // pAGAMENTOMETODOPAGDataGridViewTextBoxColumn
-            // 
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.DataPropertyName = "PAGAMENTO_METODOPAG";
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.DataSource = this.metodoPagBindingSource;
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.DisplayMember = "METODO_PAG_DESCRICAO";
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.HeaderText = "PAGAMENTO_METODOPAG";
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.Name = "pAGAMENTOMETODOPAGDataGridViewTextBoxColumn";
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.pAGAMENTOMETODOPAGDataGridViewTextBoxColumn.ValueMember = "METODO_PAG_ID";
-            // 
-            // pAGAMENTOFORMAPAGDataGridViewTextBoxColumn
-            // 
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.DataPropertyName = "PAGAMENTO_FORMAPAG";
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.DataSource = this.formaPagBindingSource;
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.DisplayMember = "FORMA_PAG_DESCRICAO";
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.HeaderText = "PAGAMENTO_FORMAPAG";
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.Name = "pAGAMENTOFORMAPAGDataGridViewTextBoxColumn";
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.pAGAMENTOFORMAPAGDataGridViewTextBoxColumn.ValueMember = "FORMA_PAG_ID";
-            // 
-            // pAGAMENTOTIPOPAGDataGridViewTextBoxColumn
-            // 
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.DataPropertyName = "PAGAMENTO_TIPOPAG";
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.DataSource = this.tipoPagBindingSource;
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.DisplayMember = "TIPO_PAG_DESCRICAO";
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.HeaderText = "PAGAMENTO_TIPOPAG";
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.Name = "pAGAMENTOTIPOPAGDataGridViewTextBoxColumn";
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.pAGAMENTOTIPOPAGDataGridViewTextBoxColumn.ValueMember = "TIPO_PAG_ID";
-            // 
             // frmCadPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,8 +512,6 @@
 
         private System.Windows.Forms.DataGridView dgView;
         private System.Windows.Forms.TextBox tbPagador;
-        private System.Windows.Forms.TextBox pAGAMENTO_VALORPAGOTextBox;
-        private System.Windows.Forms.TextBox pAGAMENTO_VALORPAGARTextBox;
         private System.Windows.Forms.DateTimePicker dpVencimento;
         private System.Windows.Forms.DateTimePicker dpData;
         private System.Windows.Forms.TextBox tbFormaPag;
@@ -609,15 +530,12 @@
         private System.Windows.Forms.ComboBox cbMetodoPag;
         private System.Windows.Forms.ComboBox cbFormaPag;
         private System.Windows.Forms.ComboBox cbBeneficiario;
+        private System.Windows.Forms.TextBox tbValorPagar;
+        private System.Windows.Forms.TextBox tbValorPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn pAGAMENTOIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pAGAMENTODATADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pAGAMENTOVENCIMENTODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pAGAMENTOVALORPAGARDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pAGAMENTOVALORPAGODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn pAGAMENTOBENEFICIARIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn pAGAMENTOPAGADORDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn pAGAMENTOMETODOPAGDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn pAGAMENTOFORMAPAGDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn pAGAMENTOTIPOPAGDataGridViewTextBoxColumn;
     }
 }

@@ -14,6 +14,7 @@ namespace ViewWFA.Forms
 
         private void frmCadBeneficiario_Load(object sender, EventArgs e)
         {
+            FormatarGrid();
             CarregarDados();
             AtivarControles(true);
             BloquearEdicaoDados(true);
@@ -137,6 +138,26 @@ namespace ViewWFA.Forms
         private void dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnCancelar.PerformClick();
+        }
+
+        private void FormatarGrid()
+        {
+            //Ordenação das colunas
+            dgView.Columns[0].DisplayIndex = 0;
+            dgView.Columns[1].DisplayIndex = 1;
+            dgView.Columns[2].DisplayIndex = 3;
+            dgView.Columns[3].DisplayIndex = 2;
+
+            //Cabeçalho
+            dgView.Columns[0].HeaderText = "ID";
+            dgView.Columns[0].Visible = false;
+            dgView.Columns[1].HeaderText = "CNPJ/CPF";            
+            dgView.Columns[2].HeaderText = "RAZÃO SOCIAL";
+            dgView.Columns[3].HeaderText = "APELIDO";
+
+            //Preenchimento das células
+            dgView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

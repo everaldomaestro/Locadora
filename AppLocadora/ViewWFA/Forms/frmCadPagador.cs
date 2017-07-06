@@ -14,6 +14,7 @@ namespace ViewWFA.Forms
 
         private void frmCadPagador_Load(object sender, EventArgs e)
         {
+            FormatarGrid();
             CarregarDados();
             AtivarControles(true);
             BloquearEdicaoDados(true);
@@ -135,6 +136,19 @@ namespace ViewWFA.Forms
         private void dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnCancelar.PerformClick();
+        }
+
+        private void FormatarGrid()
+        {
+            //Cabeçalho
+            dgView.Columns[0].HeaderText = "ID";
+            dgView.Columns[0].Visible = false;
+            dgView.Columns[1].HeaderText = "CPF";
+            dgView.Columns[2].HeaderText = "NOME";
+
+            //Preenchimento das células
+            dgView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

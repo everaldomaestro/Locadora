@@ -16,7 +16,7 @@ namespace ViewWFA.Forms
         {
             FormatarGrid();
             CarregarDados();
-            AtivarControles(true);
+            AtivarControles();
             BloquearEdicaoDados(true);
         }
 
@@ -25,23 +25,9 @@ namespace ViewWFA.Forms
             operacao = Operacao.visualizarRegistro;
             PagadorController ModelController = new PagadorController();
             bSource.DataSource = ModelController.ListarTudo();
+            QtdDados = bSource.Count;
         }
         
-        private void AtivarControles(bool cmd)
-        {
-            btnPrimeiro.Enabled = cmd;
-            btnAnterior.Enabled = cmd;
-            btnProximo.Enabled = cmd;
-            btnUltimo.Enabled = cmd;
-
-            btnNovo.Enabled = cmd;
-            btnSalvar.Enabled = !cmd;
-            btnEditar.Enabled = cmd;
-            btnRemover.Enabled = cmd;
-            btnCancelar.Enabled = !cmd;
-            btnAtualizar.Enabled = cmd;            
-        }
-
         private void BloquearEdicaoDados(bool cmd)
         {
             foreach (Control c in gbDados.Controls)
@@ -56,7 +42,7 @@ namespace ViewWFA.Forms
         private void btnNovo_Click(object sender, EventArgs e)//ok
         {
             operacao = Operacao.gravarNovo;
-            AtivarControles(false);
+            AtivarControles();
             BloquearEdicaoDados(false);
 
             bSource.AddNew();
@@ -70,28 +56,30 @@ namespace ViewWFA.Forms
             if (operacao == Operacao.gravarNovo)
             {
                 model.PAGADOR_CNPJCPF = pAGADOR_CNPJCPFTextBox.Text;
+                model.PAGADOR_NOMECOMPLETO = pAGADOR_NOMECOMPLETOTextBox.Text;
                 model.PAGADOR_NOME = pAGADOR_NOMETextBox.Text;
 
                 ModelController.Inserir(model);
             }
             else if(operacao == Operacao.editarRegistro)
             {
-                model = (Pagador) bSource.Current;
-                model.PAGADOR_CNPJCPF = pAGADOR_CNPJCPFTextBox.Text;
-                model.PAGADOR_NOME = pAGADOR_NOMETextBox.Text;
+                //model = (Pagador) bSource.Current;
+                //model.PAGADOR_CNPJCPF = pAGADOR_CNPJCPFTextBox.Text;
+                //model.PAGADOR_NOMECOMPLETO = pAGADOR_NOMECOMPLETOTextBox.Text;
+                //model.PAGADOR_NOME = pAGADOR_NOMETextBox.Text;
 
-                ModelController.Atualizar(model);
+                //ModelController.Atualizar(model);
             }
 
             CarregarDados();
-            AtivarControles(true);
+            AtivarControles();
             BloquearEdicaoDados(true);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             operacao = Operacao.editarRegistro;
-            AtivarControles(false);
+            AtivarControles();
             BloquearEdicaoDados(false);
 
             pAGADOR_CNPJCPFTextBox.Focus();
@@ -108,8 +96,7 @@ namespace ViewWFA.Forms
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                 DialogResult.Yes)
             {
-                ModelController.Excluir(model.PAGADOR_ID);
-                CarregarDados();
+                ModelController.Excluir(model.PAGADOR_ID);                
                 MessageBox.Show("Exclusão executada", "Exclusão",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -118,13 +105,16 @@ namespace ViewWFA.Forms
                 MessageBox.Show("Exclusão cancelada", "Exclusão", 
                     MessageBoxButtons.OK ,MessageBoxIcon.Information);
             }
+
+            CarregarDados();
+            AtivarControles();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             bSource.CancelEdit();
             CarregarDados();
-            AtivarControles(true);
+            AtivarControles();
             BloquearEdicaoDados(true);
         }
 
@@ -145,10 +135,11 @@ namespace ViewWFA.Forms
             dgView.Columns[0].Visible = false;
             dgView.Columns[1].HeaderText = "CPF";
             dgView.Columns[2].HeaderText = "NOME";
+            dgView.Columns[3].HeaderText = "NOME COMPLETO";
 
             //Preenchimento das células
             dgView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

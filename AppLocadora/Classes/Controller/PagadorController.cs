@@ -49,6 +49,7 @@ namespace Classes.Controller
 
                 pagador.PAGADOR_CNPJCPF = obj.PAGADOR_CNPJCPF;
                 pagador.PAGADOR_NOME = obj.PAGADOR_NOME;
+                pagador.PAGADOR_NOMECOMPLETO = obj.PAGADOR_NOMECOMPLETO;
 
                 TableIDAO.Inserir(pagador);
             }
@@ -80,6 +81,7 @@ namespace Classes.Controller
                 pagador.PAGADOR_ID = obj.PAGADOR_ID;
                 pagador.PAGADOR_CNPJCPF = obj.PAGADOR_CNPJCPF;
                 pagador.PAGADOR_NOME = obj.PAGADOR_NOME;
+                pagador.PAGADOR_NOMECOMPLETO = obj.PAGADOR_NOMECOMPLETO;
 
                 TableIDAO.Atualizar(pagador);
             }

@@ -30,11 +30,14 @@ namespace Classes.DAO
                 cmd.CommandText =
                     "UPDATE PAGADOR SET " +
                     "PAGADOR_CNPJCPF=@CNPJCPF," +
+                    "PAGADOR_NOMECOMPLETO=@NOMECOMPLETO," +
                     "PAGADOR_NOME=@NOME " +
                     "WHERE PAGADOR_ID=@ID";
 
                 cmd.Parameters.Add("@CNPJCPF", SqlDbType.Text).Value =
                     model.PAGADOR_CNPJCPF;
+                cmd.Parameters.Add("@NOMECOMPLETO", SqlDbType.Text).Value =
+                    model.PAGADOR_NOMECOMPLETO;
                 cmd.Parameters.Add("@NOME", SqlDbType.Text).Value =
                     model.PAGADOR_NOME;
                 cmd.Parameters.Add("@ID", SqlDbType.Int).Value =
@@ -57,13 +60,17 @@ namespace Classes.DAO
                 cmd.CommandText =
                     "INSERT INTO PAGADOR (" +
                     "PAGADOR_CNPJCPF," +
+                    "PAGADOR_NOMECOMPLETO," +
                     "PAGADOR_NOME)" +
                     "VALUES(" +
                     "@CNPJCPF," +
+                    "@NOMECOMPLETO," +
                     "@NOME)";
 
                 cmd.Parameters.Add("@CNPJCPF", SqlDbType.Text).Value = 
                     model.PAGADOR_CNPJCPF;
+                cmd.Parameters.Add("@NOMECOMPLETO", SqlDbType.Text).Value =
+                    model.PAGADOR_NOMECOMPLETO;
                 cmd.Parameters.Add("@NOME", SqlDbType.Text).Value =
                     model.PAGADOR_NOME;
 
@@ -84,6 +91,7 @@ namespace Classes.DAO
                     "SELECT " +
                     "PAGADOR_ID," +
                     "PAGADOR_CNPJCPF," +
+                    "PAGADOR_NOMECOMPLETO," +
                     "PAGADOR_NOME " +
                     "FROM PAGADOR " +
                     "ORDER BY PAGADOR_NOME";
@@ -99,6 +107,7 @@ namespace Classes.DAO
                         {                        
                             PAGADOR_ID = int.Parse(row["PAGADOR_ID"].ToString()),
                             PAGADOR_CNPJCPF = row["PAGADOR_CNPJCPF"].ToString(),
+                            PAGADOR_NOMECOMPLETO = row["PAGADOR_NOMECOMPLETO"].ToString(),
                             PAGADOR_NOME = row["PAGADOR_NOME"].ToString(),
                         };
                         Pagadores.Add(pagador);
@@ -121,6 +130,7 @@ namespace Classes.DAO
                     "SELECT " +
                     "PAGADOR_ID," +
                     "PAGADOR_CNPJCPF," +
+                    "PAGADOR_NOMECOMPLETO," +
                     "PAGADOR_NOME " +
                     "FROM PAGADOR " +
                     "WHERE PAGADOR_ID=@ID";
@@ -136,7 +146,8 @@ namespace Classes.DAO
                         reader.Read();
                         pagador.PAGADOR_ID = reader.GetInt32(0);
                         pagador.PAGADOR_CNPJCPF = reader.GetString(1);
-                        pagador.PAGADOR_NOME = reader.GetString(2);
+                        pagador.PAGADOR_NOMECOMPLETO = reader.GetString(2);
+                        pagador.PAGADOR_NOME = reader.GetString(3);
                     }
                 }
             }

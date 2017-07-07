@@ -16,7 +16,7 @@ namespace ViewWFA.Forms
         {            
             CarregarDados();
             FormatarGrid();
-            AtivarControles(true);
+            AtivarControles();
             BloquearEdicaoDados(true);
         }
 
@@ -41,23 +41,9 @@ namespace ViewWFA.Forms
             
             PagamentoController ModelController = new PagamentoController();
             bSource.DataSource = ModelController.ListarTudo();
+            QtdDados = bSource.Count;
         }
-        
-        private void AtivarControles(bool cmd)
-        {
-            btnPrimeiro.Enabled = cmd;
-            btnAnterior.Enabled = cmd;
-            btnProximo.Enabled = cmd;
-            btnUltimo.Enabled = cmd;
-
-            btnNovo.Enabled = cmd;
-            btnSalvar.Enabled = !cmd;
-            btnEditar.Enabled = cmd;
-            btnRemover.Enabled = cmd;
-            btnCancelar.Enabled = !cmd;
-            btnAtualizar.Enabled = cmd;            
-        }
-
+              
         private void BloquearEdicaoDados(bool cmd)
         {
             foreach (Control c in gbDados.Controls)
@@ -106,7 +92,7 @@ namespace ViewWFA.Forms
         private void btnNovo_Click(object sender, EventArgs e)//ok
         {
             operacao = Operacao.gravarNovo;
-            AtivarControles(false);
+            AtivarControles();
             BloquearEdicaoDados(false);
 
             cbBeneficiario.SelectedIndex = 0;
@@ -168,14 +154,14 @@ namespace ViewWFA.Forms
             }
 
             CarregarDados();
-            AtivarControles(true);
+            AtivarControles();
             BloquearEdicaoDados(true);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             operacao = Operacao.editarRegistro;
-            AtivarControles(false);
+            AtivarControles();
             BloquearEdicaoDados(false);
 
             dpData.Focus();
@@ -193,7 +179,6 @@ namespace ViewWFA.Forms
                 DialogResult.Yes)
             {
                 ModelController.Excluir(model.PAGAMENTO_ID);
-                CarregarDados();
                 MessageBox.Show("Exclusão executada", "Exclusão",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -202,13 +187,16 @@ namespace ViewWFA.Forms
                 MessageBox.Show("Exclusão cancelada", "Exclusão", 
                     MessageBoxButtons.OK ,MessageBoxIcon.Information);
             }
+
+            CarregarDados();
+            AtivarControles();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             bSource.CancelEdit();
             CarregarDados();
-            AtivarControles(true);
+            AtivarControles();
             BloquearEdicaoDados(true);
         }
 
@@ -281,11 +269,6 @@ namespace ViewWFA.Forms
 
             //Preenchimento das células      
             dgView.AutoResizeColumns();
-            //dgView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dgView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dgView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dgView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dgView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             
             //Máscara de dados
             dgView.Columns[3].DefaultCellStyle.Format = "R$ 000.00";

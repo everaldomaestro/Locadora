@@ -7,7 +7,6 @@ namespace Classes.Conexao
 {
     public class Connection : IConnection, IDisposable
     {
-
         private SqlConnection _connection;
 
         public Connection()
@@ -20,7 +19,7 @@ namespace Classes.Conexao
 
         public SqlConnection Abrir()
         {
-            if(_connection.State == ConnectionState.Closed)
+            if (_connection.State == ConnectionState.Closed)
             {
                 _connection.Open();
             }

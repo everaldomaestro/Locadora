@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ViewWFA.Heranca
@@ -20,10 +13,57 @@ namespace ViewWFA.Heranca
         }
 
         protected static Operacao operacao;
+        protected static int QtdDados;
 
         public frmCadPai()
         {
             InitializeComponent();
+        }
+
+        protected void AtivarControles()
+        {
+            if (QtdDados == 0 && operacao == Operacao.visualizarRegistro)
+            {
+                btnPrimeiro.Enabled = false;
+                btnAnterior.Enabled = false;
+                btnProximo.Enabled = false;
+                btnUltimo.Enabled = false;
+
+                btnNovo.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnRemover.Enabled = false;
+                btnCancelar.Enabled = false;
+                btnAtualizar.Enabled = true;
+            }
+            else if (QtdDados != 0 && operacao == Operacao.visualizarRegistro)
+            {
+                btnPrimeiro.Enabled = true;
+                btnAnterior.Enabled = true;
+                btnProximo.Enabled = true;
+                btnUltimo.Enabled = true;
+
+                btnNovo.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnEditar.Enabled = true;
+                btnRemover.Enabled = true;
+                btnCancelar.Enabled = false;
+                btnAtualizar.Enabled = true;
+            }
+            else
+            {
+                btnPrimeiro.Enabled = false;
+                btnAnterior.Enabled = false;
+                btnProximo.Enabled = false;
+                btnUltimo.Enabled = false;
+
+                btnNovo.Enabled = false;
+                btnSalvar.Enabled = true;
+                btnEditar.Enabled = false;
+                btnRemover.Enabled = false;
+                btnCancelar.Enabled = true;
+                btnAtualizar.Enabled = false;
+            }
         }
 
         private void btnPrimeiro_Click(object sender, EventArgs e)

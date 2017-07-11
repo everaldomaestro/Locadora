@@ -166,6 +166,8 @@
             this.pAGADOR_NOMETextBox.Name = "pAGADOR_NOMETextBox";
             this.pAGADOR_NOMETextBox.Size = new System.Drawing.Size(271, 20);
             this.pAGADOR_NOMETextBox.TabIndex = 2;
+            this.pAGADOR_NOMETextBox.Enter += new System.EventHandler(this.pAGADOR_NOMETextBox_Enter);
+            this.pAGADOR_NOMETextBox.Leave += new System.EventHandler(this.pAGADOR_NOMETextBox_Leave);
             // 
             // pAGADOR_NOMECOMPLETOTextBox
             // 

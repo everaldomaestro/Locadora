@@ -1,39 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
-namespace Validation
+namespace Util
 {
     public class Validation
     {
-        private string cnpjcpf;
-        private string nome;
-        private string data;
-        private string moeda;
+        private string _cpf;
+        private string _nome;
+        private string _data;
+        private string _moeda;
 
         private bool teste = false;
 
-        public bool CNPJCPF(string cnpjcpf)
+        public bool CPF(string cpf)
         {
-            this.cnpjcpf = cnpjcpf;
-
-
-            return teste;
+            return true;
         }
 
         public bool Nome(string nome)
         {
-            this.nome = nome;
+            Regex rgx = new Regex(@"^[A-ZÀ-Ú]+((\s[A-ZÀ-Ú]+)+)?$");
 
-
-            return teste;
+            if (rgx.IsMatch(nome))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool Data(string data)
         {
-            this.data = data;
+            _data = data;
 
 
             return teste;
@@ -41,7 +40,7 @@ namespace Validation
 
         public bool Moeda(string moeda)
         {
-            this.moeda = moeda;
+            _moeda = moeda;
 
 
             return teste;

@@ -152,6 +152,10 @@
       <Project>{3d069c90-f894-41d2-825d-2466dcc0016f}</Project>
       <Name>Classes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Validation\Util.csproj">
+      <Project>{9dcd70f3-325d-4dbc-aeeb-586c71bf8783}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

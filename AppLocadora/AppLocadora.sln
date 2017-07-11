@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewWFA", "ViewWFA\ViewWFA.csproj", "{0B969724-56EE-4BF7-8D82-B564F639BC47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validation", "Validation\Validation.csproj", "{9DCD70F3-325D-4DBC-AEEB-586C71BF8783}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Validation\Util.csproj", "{9DCD70F3-325D-4DBC-AEEB-586C71BF8783}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

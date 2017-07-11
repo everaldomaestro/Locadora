@@ -46,13 +46,15 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.tpConsulta = new System.Windows.Forms.TabPage();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.status = new System.Windows.Forms.StatusStrip();
+            this.tsStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.bSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl.SuspendLayout();
             this.tpCadastro.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -226,21 +228,28 @@
             this.tpConsulta.Text = "Consulta";
             this.tpConsulta.UseVisualStyleBackColor = true;
             // 
-            // statusStrip1
+            // status
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 498);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(611, 22);
-            this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsStatus});
+            this.status.Location = new System.Drawing.Point(0, 498);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(611, 22);
+            this.status.SizingGrip = false;
+            this.status.TabIndex = 1;
+            this.status.Text = "statusStrip1";
+            // 
+            // tsStatus
+            // 
+            this.tsStatus.Name = "tsStatus";
+            this.tsStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // frmCadPai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(611, 520);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -253,6 +262,8 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.status.ResumeLayout(false);
+            this.status.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -263,7 +274,7 @@
         protected System.Windows.Forms.TabPage tpCadastro;
         protected System.Windows.Forms.TabPage tpConsulta;
         protected System.Windows.Forms.TabControl tabControl;
-        protected System.Windows.Forms.StatusStrip statusStrip1;
+        protected System.Windows.Forms.StatusStrip status;
         protected System.Windows.Forms.Panel panel3;
         protected System.Windows.Forms.Panel panel2;
         protected System.Windows.Forms.Panel panel1;
@@ -279,5 +290,6 @@
         protected System.Windows.Forms.Button btnSalvar;
         protected System.Windows.Forms.Button btnNovo;
         protected System.Windows.Forms.BindingSource bSource;
+        protected System.Windows.Forms.ToolStripStatusLabel tsStatus;
     }
 }

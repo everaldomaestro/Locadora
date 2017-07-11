@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Util;
 
 namespace ViewWFA.Heranca
 {
@@ -14,6 +15,7 @@ namespace ViewWFA.Heranca
 
         protected static Operacao operacao;
         protected static int QtdDados;
+        protected static Validation validation = new Validation();
 
         public frmCadPai()
         {

@@ -1,17 +1,18 @@
 ﻿using Classes.Controller;
 using Classes.Entidades;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ViewWFA.Forms
 {
-    public partial class frmCadPagador : ViewWFA.Heranca.frmCadPai
+    public partial class frmCadPagador : Heranca.frmCadPai
     {
         public frmCadPagador()
         {
             InitializeComponent();
         }
-
+        
         private void frmCadPagador_Load(object sender, EventArgs e)
         {
             FormatarGrid();
@@ -51,29 +52,85 @@ namespace ViewWFA.Forms
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            PagadorController ModelController = new PagadorController();
-            Pagador model = new Pagador();
-            if (operacao == Operacao.gravarNovo)
-            {
-                model.PAGADOR_CNPJCPF = pAGADOR_CNPJCPFTextBox.Text;
-                model.PAGADOR_NOMECOMPLETO = pAGADOR_NOMECOMPLETOTextBox.Text;
-                model.PAGADOR_NOME = pAGADOR_NOMETextBox.Text;
+            bool [] ObjValido = new bool [3];
+            bool gravar = false;
 
-                ModelController.Inserir(model);
+            if (validation.CPF(pAGADOR_CNPJCPFTextBox.Text.ToString()))
+            {
+                pAGADOR_CNPJCPFTextBox.ForeColor = DefaultForeColor;
+                ObjValido[0] = true;
             }
-            else if(operacao == Operacao.editarRegistro)
+            else
             {
-                //model = (Pagador) bSource.Current;
-                //model.PAGADOR_CNPJCPF = pAGADOR_CNPJCPFTextBox.Text;
-                //model.PAGADOR_NOMECOMPLETO = pAGADOR_NOMECOMPLETOTextBox.Text;
-                //model.PAGADOR_NOME = pAGADOR_NOMETextBox.Text;
-
-                //ModelController.Atualizar(model);
+                pAGADOR_CNPJCPFTextBox.ForeColor = System.Drawing.Color.Red;
+                ObjValido[0] = false;
             }
 
-            CarregarDados();
-            AtivarControles();
-            BloquearEdicaoDados(true);
+            if (validation.Nome(pAGADOR_NOMETextBox.Text.ToString()))
+            {
+                pAGADOR_NOMETextBox.ForeColor = DefaultForeColor;
+                ObjValido[1] = true;
+            }
+            else
+            {
+                pAGADOR_NOMETextBox.ForeColor = System.Drawing.Color.Red;
+                ObjValido[1] = false;
+            }
+
+            if (validation.Nome(pAGADOR_NOMECOMPLETOTextBox.Text.ToString()))
+            {
+                pAGADOR_NOMECOMPLETOTextBox.ForeColor = DefaultForeColor;
+                ObjValido[2] = true;
+            }
+            else
+            {
+                pAGADOR_NOMECOMPLETOTextBox.ForeColor = System.Drawing.Color.Red;
+                ObjValido[2] = false;
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                if(ObjValido[i] == true)
+                {
+                    gravar = true;
+                }
+                else
+                {
+                    gravar = false;
+                    break;
+                }
+            }
+
+            if (gravar)
+            {
+                PagadorController ModelController = new PagadorController();
+                Pagador model = new Pagador();
+                if (operacao == Operacao.gravarNovo)
+                {
+                    model.PAGADOR_CNPJCPF = pAGADOR_CNPJCPFTextBox.Text;
+                    model.PAGADOR_NOMECOMPLETO = pAGADOR_NOMECOMPLETOTextBox.Text;
+                    model.PAGADOR_NOME = pAGADOR_NOMETextBox.Text;
+
+                    //ModelController.Inserir(model);
+                }
+                else if (operacao == Operacao.editarRegistro)
+                {
+                    model = (Pagador)bSource.Current;
+                    model.PAGADOR_CNPJCPF = pAGADOR_CNPJCPFTextBox.Text;
+                    model.PAGADOR_NOMECOMPLETO = pAGADOR_NOMECOMPLETOTextBox.Text;
+                    model.PAGADOR_NOME = pAGADOR_NOMETextBox.Text;
+
+                    //ModelController.Atualizar(model);
+                }
+
+                CarregarDados();
+                AtivarControles();
+                BloquearEdicaoDados(true);
+            }
+            else
+            {
+                MessageBox.Show("Corrija os campos em vermelho");
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -140,6 +197,19 @@ namespace ViewWFA.Forms
             //Preenchimento das células
             dgView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void pAGADOR_NOMETextBox_Enter(object sender, EventArgs e)
+        {   
+            string Dica = "Digite um nome válido. Acento agudo permitido. Outros caracteres não serão aceitos.";
+            tsStatus.ForeColor = System.Drawing.Color.White;
+            tsStatus.BackColor = System.Drawing.Color.Red;
+            tsStatus.Text = Dica;
+        }
+
+        private void pAGADOR_NOMETextBox_Leave(object sender, EventArgs e)
+        {
+            tsStatus.Text = null;
         }
     }
 }

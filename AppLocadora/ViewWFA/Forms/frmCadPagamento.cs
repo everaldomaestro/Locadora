@@ -95,6 +95,7 @@ namespace ViewWFA.Forms
             AtivarControles();
             BloquearEdicaoDados(false);
 
+            //Gambi
             cbBeneficiario.SelectedIndex = 0;
             cbPagador.SelectedIndex = 0;
             cbMetodoPag.SelectedIndex = 0;
@@ -106,14 +107,17 @@ namespace ViewWFA.Forms
             int idMetodoPag = (int)cbMetodoPag.SelectedValue;
             int idFormaPag = (int)cbFormaPag.SelectedValue;
             int idTipoPag = (int)cbTipoPag.SelectedValue;
+            //Pause Gambi
 
-            bSource.AddNew();           
+            bSource.AddNew();
 
+            //Continue Gambi
             dgView.CurrentRow.Cells[5].Value = idBeneficiario;
             dgView.CurrentRow.Cells[6].Value = idPagador;
             dgView.CurrentRow.Cells[7].Value = idMetodoPag;
             dgView.CurrentRow.Cells[8].Value = idFormaPag;
             dgView.CurrentRow.Cells[9].Value = idTipoPag;            
+            //Fim Gambi
 
             dpData.Focus();            
         }

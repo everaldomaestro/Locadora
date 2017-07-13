@@ -7,6 +7,15 @@ namespace ViewWFA.Forms
 {
     public partial class frmCadPagamento : ViewWFA.Heranca.frmCadPai
     {
+        BeneficiarioController beneficiarioController = new BeneficiarioController();
+        Forma_PagController forma_PagController = new Forma_PagController();
+        Metodo_PagController metodo_PagController = new Metodo_PagController();
+        PagadorController pagadorController = new PagadorController();
+        Tipo_PagController tipo_PagController = new Tipo_PagController();
+        PagamentoController ModelController = new PagamentoController();
+
+        Pagamento model = new Pagamento();
+
         public frmCadPagamento()
         {
             InitializeComponent();
@@ -23,23 +32,13 @@ namespace ViewWFA.Forms
         private void CarregarDados()
         {
             operacao = Operacao.visualizarRegistro;            
-            //Chaves estrangeiras
-            BeneficiarioController beneficiarioController = new BeneficiarioController();
-            beneficiarioBindingSource.DataSource = beneficiarioController.ListarTudo();
+            //Chaves estrangeiras            
+            beneficiarioBindingSource.DataSource = beneficiarioController.ListarTudo();         
+            formaPagBindingSource.DataSource = forma_PagController.ListarTudo();           
+            metodoPagBindingSource.DataSource = metodo_PagController.ListarTudo();            
+            pagadorBindingSource.DataSource = pagadorController.ListarTudo();            
+            tipoPagBindingSource.DataSource = tipo_PagController.ListarTudo();            
             
-            Forma_PagController forma_PagController = new Forma_PagController();
-            formaPagBindingSource.DataSource = forma_PagController.ListarTudo();
-           
-            Metodo_PagController metodo_PagController = new Metodo_PagController();
-            metodoPagBindingSource.DataSource = metodo_PagController.ListarTudo();
-            
-            PagadorController pagadorController = new PagadorController();
-            pagadorBindingSource.DataSource = pagadorController.ListarTudo();
-            
-            Tipo_PagController tipo_PagController = new Tipo_PagController();
-            tipoPagBindingSource.DataSource = tipo_PagController.ListarTudo();
-            
-            PagamentoController ModelController = new PagamentoController();
             bSource.DataSource = ModelController.ListarTudo();
             QtdDados = bSource.Count;
         }
@@ -95,37 +94,21 @@ namespace ViewWFA.Forms
             AtivarControles();
             BloquearEdicaoDados(false);
 
-            //Gambi
-            cbBeneficiario.SelectedIndex = 0;
-            cbPagador.SelectedIndex = 0;
-            cbMetodoPag.SelectedIndex = 0;
-            cbFormaPag.SelectedIndex = 0;
-            cbTipoPag.SelectedIndex = 0;
-
-            int idBeneficiario = (int)cbBeneficiario.SelectedValue;
-            int idPagador = (int)cbPagador.SelectedValue;
-            int idMetodoPag = (int)cbMetodoPag.SelectedValue;
-            int idFormaPag = (int)cbFormaPag.SelectedValue;
-            int idTipoPag = (int)cbTipoPag.SelectedValue;
-            //Pause Gambi
-
             bSource.AddNew();
-
-            //Continue Gambi
-            dgView.CurrentRow.Cells[5].Value = idBeneficiario;
-            dgView.CurrentRow.Cells[6].Value = idPagador;
-            dgView.CurrentRow.Cells[7].Value = idMetodoPag;
-            dgView.CurrentRow.Cells[8].Value = idFormaPag;
-            dgView.CurrentRow.Cells[9].Value = idTipoPag;            
-            //Fim Gambi
+            
+            //Gambitech
+            dgView.CurrentRow.Cells[5].Value = beneficiarioController.LocalizarPrimeiro().BENEFICIARIO_ID;
+            dgView.CurrentRow.Cells[6].Value = pagadorController.LocalizarPrimeiro().PAGADOR_ID;
+            dgView.CurrentRow.Cells[7].Value = metodo_PagController.LocalizarPrimeiro().METODO_PAG_ID;
+            dgView.CurrentRow.Cells[8].Value = forma_PagController.LocalizarPrimeiro().FORMA_PAG_ID;
+            dgView.CurrentRow.Cells[9].Value = tipo_PagController.LocalizarPrimeiro().TIPO_PAG_ID;
+            //Fim Gambitech
 
             dpData.Focus();            
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            PagamentoController ModelController = new PagamentoController();
-            Pagamento model = new Pagamento();
+        {   
             if (operacao == Operacao.gravarNovo)
             {
                 model.PAGAMENTO_DATA = dpData.Value;
@@ -173,8 +156,7 @@ namespace ViewWFA.Forms
 
         private void btnRemover_Click(object sender, EventArgs e)//OK
         {
-            PagamentoController ModelController = new PagamentoController();
-            Pagamento model = (Pagamento) bSource.Current;
+            model = (Pagamento) bSource.Current;
 
             if (MessageBox.Show(
                 "Tem certeza que deseja excluir o registro Nº: " +

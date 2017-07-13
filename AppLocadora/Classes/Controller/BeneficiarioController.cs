@@ -32,7 +32,7 @@ namespace Classes.Controller
                 con.Abrir();
                 IDAO<Beneficiario> TableIDAO = new BeneficiarioDAO(con);
 
-                Beneficiario b = TableIDAO.LocalizarPorCodigo(ID);
+                result = TableIDAO.LocalizarPorCodigo(ID);
             }
 
             return result;
@@ -85,6 +85,21 @@ namespace Classes.Controller
 
                 TableIDAO.Atualizar(beneficiario);
             }
+        }
+
+        public Beneficiario LocalizarPrimeiro()
+        {
+            Beneficiario result = null;
+
+            using (Connection con = new Connection())
+            {
+                con.Abrir();
+                IDAO<Beneficiario> TableIDAO = new BeneficiarioDAO(con);
+
+                result = TableIDAO.LocalizarPrimeiro();
+            }
+
+            return result;
         }
     }
 }

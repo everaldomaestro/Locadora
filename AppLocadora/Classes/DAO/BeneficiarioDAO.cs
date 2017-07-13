@@ -150,6 +150,39 @@ namespace Classes.DAO
             return beneficiario;
         }
 
+        public Beneficiario LocalizarPrimeiro()
+        {
+            Beneficiario beneficiario = null;
+
+            using (SqlCommand cmd = _connection.Buscar().CreateCommand())
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText =
+                    "SELECT " +
+                    "TOP 1 " +
+                    "BENEFICIARIO_ID," +
+                    "BENEFICIARIO_CNPJCPF," +
+                    "BENEFICIARIO_NOMEFAN," +
+                    "BENEFICIARIO_RAZAOSOC " +
+                    "FROM BENEFICIARIO";
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        beneficiario = new Beneficiario();
+                        reader.Read();
+                        beneficiario.BENEFICIARIO_ID = reader.GetInt32(0);
+                        beneficiario.BENEFICIARIO_CNPJCPF = reader.GetString(1);
+                        beneficiario.BENEFICIARIO_NOMEFAN = reader.GetString(2);
+                        beneficiario.BENEFICIARIO_RAZAOSOC = reader.GetString(3);
+                    }
+                }
+            }
+
+            return beneficiario;
+        }
+
         public bool Remover(Beneficiario model)
         {
             bool retornar = false;

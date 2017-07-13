@@ -133,6 +133,35 @@ namespace Classes.DAO
             return forma_Pag;
         }
 
+        public Forma_Pag LocalizarPrimeiro()//OK
+        {
+            Forma_Pag forma_Pag = null;
+
+            using (SqlCommand cmd = _connection.Buscar().CreateCommand())
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText =
+                    "SELECT " +
+                    "TOP 1 " +
+                    "FORMA_PAG_ID," +
+                    "FORMA_PAG_DESCRICAO " +
+                    "FROM FORMA_PAG ";
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        forma_Pag = new Forma_Pag();
+                        reader.Read();
+                        forma_Pag.FORMA_PAG_ID = reader.GetInt32(0);
+                        forma_Pag.FORMA_PAG_DESCRICAO = reader.GetString(1);
+                    }
+                }
+            }
+
+            return forma_Pag;
+        }
+
         public bool Remover(Forma_Pag model)//OK
         {
             bool retornar = false;

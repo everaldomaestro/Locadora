@@ -32,7 +32,7 @@ namespace Classes.Controller
                 con.Abrir();
                 IDAO<Forma_Pag> TableIDAO = new Forma_PagDAO(con);
 
-                Forma_Pag b = TableIDAO.LocalizarPorCodigo(ID);
+                result = TableIDAO.LocalizarPorCodigo(ID);
             }
 
             return result;
@@ -81,6 +81,21 @@ namespace Classes.Controller
 
                 TableIDAO.Atualizar(forma_Pag);
             }
+        }
+
+        public Forma_Pag LocalizarPrimeiro()
+        {
+            Forma_Pag result = null;
+
+            using (Connection con = new Connection())
+            {
+                con.Abrir();
+                IDAO<Forma_Pag> TableIDAO = new Forma_PagDAO(con);
+
+                result = TableIDAO.LocalizarPrimeiro();
+            }
+
+            return result;
         }
     }
 }

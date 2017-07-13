@@ -133,6 +133,35 @@ namespace Classes.DAO
             return metodo_pag;
         }
 
+        public Metodo_Pag LocalizarPrimeiro()
+        {
+            Metodo_Pag metodo_pag = null;
+
+            using (SqlCommand cmd = _connection.Buscar().CreateCommand())
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText =
+                    "SELECT " +
+                    "TOP 1 " +
+                    "METODO_PAG_ID," +
+                    "METODO_PAG_DESCRICAO " +
+                    "FROM METODO_PAG ";
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        metodo_pag = new Metodo_Pag();
+                        reader.Read();
+                        metodo_pag.METODO_PAG_ID = reader.GetInt32(0);
+                        metodo_pag.METODO_PAG_DESCRICAO = reader.GetString(1);
+                    }
+                }
+            }
+
+            return metodo_pag;
+        }
+
         public bool Remover(Metodo_Pag model)//OK
         {
             bool retornar = false;

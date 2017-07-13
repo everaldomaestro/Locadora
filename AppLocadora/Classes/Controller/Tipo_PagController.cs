@@ -32,7 +32,7 @@ namespace Classes.Controller
                 con.Abrir();
                 IDAO<Tipo_Pag> TableIDAO = new Tipo_PagDAO(con);
 
-                Tipo_Pag b = TableIDAO.LocalizarPorCodigo(ID);
+                result = TableIDAO.LocalizarPorCodigo(ID);
             }
 
             return result;
@@ -81,6 +81,21 @@ namespace Classes.Controller
 
                 TableIDAO.Atualizar(tipo_pag);
             }
+        }
+
+        public Tipo_Pag LocalizarPrimeiro()
+        {
+            Tipo_Pag result = null;
+
+            using (Connection con = new Connection())
+            {
+                con.Abrir();
+                IDAO<Tipo_Pag> TableIDAO = new Tipo_PagDAO(con);
+
+                result = TableIDAO.LocalizarPrimeiro();
+            }
+
+            return result;
         }
     }
 }

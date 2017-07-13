@@ -32,7 +32,7 @@ namespace Classes.Controller
                 con.Abrir();
                 IDAO<Pagamento> TableIDAO = new PagamentoDAO(con);
 
-                Pagamento b = TableIDAO.LocalizarPorCodigo(ID);
+                result = TableIDAO.LocalizarPorCodigo(ID);
             }
 
             return result;
@@ -97,6 +97,21 @@ namespace Classes.Controller
 
                 TableIDAO.Atualizar(pagamento);
             }
+        }
+
+        public Pagamento LocalizarPrimeiro()
+        {
+            Pagamento result = null;
+
+            using (Connection con = new Connection())
+            {
+                con.Abrir();
+                IDAO<Pagamento> TableIDAO = new PagamentoDAO(con);
+
+                result = TableIDAO.LocalizarPrimeiro();
+            }
+
+            return result;
         }
     }
 }

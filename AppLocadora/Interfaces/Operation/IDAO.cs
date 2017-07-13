@@ -16,5 +16,7 @@ namespace Interfaces.Operation
         Collection<T> ListarTudo();
         //Select por ID
         T LocalizarPorCodigo(params Object[] keys);
+        //Selecionar o primeiro objeto
+        T LocalizarPrimeiro();
     }
 }

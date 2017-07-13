@@ -86,5 +86,20 @@ namespace Classes.Controller
                 TableIDAO.Atualizar(pagador);
             }
         }
+
+        public Pagador LocalizarPrimeiro()
+        {
+            Pagador result = null;
+
+            using (Connection con = new Connection())
+            {
+                con.Abrir();
+                IDAO<Pagador> TableIDAO = new PagadorDAO(con);
+
+                result = TableIDAO.LocalizarPrimeiro();
+            }
+
+            return result;
+        }
     }
 }

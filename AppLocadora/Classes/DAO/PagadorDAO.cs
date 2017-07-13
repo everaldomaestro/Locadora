@@ -14,7 +14,6 @@ namespace Classes.DAO
 {
     public class PagadorDAO : IDAO<Pagador>, IDisposable
     {
-
         private IConnection _connection;
 
         public PagadorDAO(IConnection Connection)
@@ -139,6 +138,39 @@ namespace Classes.DAO
                     keys[0];
 
                 using(SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        pagador = new Pagador();
+                        reader.Read();
+                        pagador.PAGADOR_ID = reader.GetInt32(0);
+                        pagador.PAGADOR_CNPJCPF = reader.GetString(1);
+                        pagador.PAGADOR_NOMECOMPLETO = reader.GetString(2);
+                        pagador.PAGADOR_NOME = reader.GetString(3);
+                    }
+                }
+            }
+
+            return pagador;
+        }
+
+        public Pagador LocalizarPrimeiro()
+        {
+            Pagador pagador = null;
+
+            using (SqlCommand cmd = _connection.Buscar().CreateCommand())
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText =
+                    "SELECT " +
+                    "TOP 1 " +
+                    "PAGADOR_ID," +
+                    "PAGADOR_CNPJCPF," +
+                    "PAGADOR_NOMECOMPLETO," +
+                    "PAGADOR_NOME " +
+                    "FROM PAGADOR ";
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {

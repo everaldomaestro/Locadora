@@ -207,13 +207,58 @@ namespace Classes.DAO
                         pagamento.PAGAMENTO_ID = reader.GetInt32(0);
                         pagamento.PAGAMENTO_DATA = reader.GetDateTime(1);
                         pagamento.PAGAMENTO_VENCIMENTO = reader.GetDateTime(2);
-                        pagamento.PAGAMENTO_VALORPAGAR = reader.GetDecimal(1);
-                        pagamento.PAGAMENTO_VALORPAGO = reader.GetDecimal(2);
-                        pagamento.PAGAMENTO_PAGADOR = reader.GetInt32(1);
-                        pagamento.PAGAMENTO_BENEFICIARIO = reader.GetInt32(2);
-                        pagamento.PAGAMENTO_METODOPAG = reader.GetInt32(1);
-                        pagamento.PAGAMENTO_FORMAPAG = reader.GetInt32(2);
-                        pagamento.PAGAMENTO_TIPOPAG = reader.GetInt32(3);
+                        pagamento.PAGAMENTO_VALORPAGAR = reader.GetDecimal(3);
+                        pagamento.PAGAMENTO_VALORPAGO = reader.GetDecimal(4);
+                        pagamento.PAGAMENTO_PAGADOR = reader.GetInt32(5);
+                        pagamento.PAGAMENTO_BENEFICIARIO = reader.GetInt32(6);
+                        pagamento.PAGAMENTO_METODOPAG = reader.GetInt32(7);
+                        pagamento.PAGAMENTO_FORMAPAG = reader.GetInt32(8);
+                        pagamento.PAGAMENTO_TIPOPAG = reader.GetInt32(9);
+                    }
+                }
+            }
+
+            return pagamento;
+        }
+
+        public Pagamento LocalizarPrimeiro()
+        {
+            Pagamento pagamento = null;
+
+            using (SqlCommand cmd = _connection.Buscar().CreateCommand())
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText =
+                    "SELECT " +
+                    "TOP 1 " +
+                    "PAGAMENTO_ID," +
+                    "PAGAMENTO_DATA," +
+                    "PAGAMENTO_VENCIMENTO," +
+                    "PAGAMENTO_VALORPAGAR," +
+                    "PAGAMENTO_VALORPAGO," +
+                    "PAGAMENTO_PAGADOR," +
+                    "PAGAMENTO_BENEFICIARIO," +
+                    "PAGAMENTO_METODOPAG," +
+                    "PAGAMENTO_FORMAPAG," +
+                    "PAGAMENTO_TIPOPAG " +
+                    "FROM PAGAMENTO";
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        pagamento = new Pagamento();
+                        reader.Read();
+                        pagamento.PAGAMENTO_ID = reader.GetInt32(0);
+                        pagamento.PAGAMENTO_DATA = reader.GetDateTime(1);
+                        pagamento.PAGAMENTO_VENCIMENTO = reader.GetDateTime(2);
+                        pagamento.PAGAMENTO_VALORPAGAR = reader.GetDecimal(3);
+                        pagamento.PAGAMENTO_VALORPAGO = reader.GetDecimal(4);
+                        pagamento.PAGAMENTO_PAGADOR = reader.GetInt32(5);
+                        pagamento.PAGAMENTO_BENEFICIARIO = reader.GetInt32(6);
+                        pagamento.PAGAMENTO_METODOPAG = reader.GetInt32(7);
+                        pagamento.PAGAMENTO_FORMAPAG = reader.GetInt32(8);
+                        pagamento.PAGAMENTO_TIPOPAG = reader.GetInt32(9);
                     }
                 }
             }
